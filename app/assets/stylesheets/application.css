@@ -14,12 +14,61 @@
  *= require_self
  */
 
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto');
+
+ body {
+  font-family: 'Roboto', sans-serif;
+ }
+
+ .container {
+  margin: auto;
+  width: 100%;
+  display: inline-block;
+ }
+
+ header {
+  height: 300px;
+  margin: auto;
+ }
+
+ .header-container {
+  background-image: url("Grey-Chevron-Wallpaper-13.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+ }
+
+ .header-content {
+  text-align: center;
+  font-family: 'Abril+Fatface', cursive;
+  font-size: 100px;
+  margin: none auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+ }
+
+ .yield-container {
+  margin: 0 auto;
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+ }
 
 .product {
   width: 20%;
   height: 300px;
   display: inline-block;
   margin: auto;
+}
+
+@media all and (max-width: 600px) {
+  .header-content { font-size: 75px; }
+  .product { width: 33.33%; }
+}
+
+@media all and (max-width: 350px) {
+  .header-content { font-size: 50px; }
+  .product {width: 50%;}
 }
 
 .product-img {
