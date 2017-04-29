@@ -1,5 +1,14 @@
 <h3>Don't you wanna buy something?</h3> 
 
+<div class="dropdown">
+	<button onclick="toggleDropdown()" class="dropbtn">Sort products</button>
+	<div id="sort-options" class="dropdown-options">
+		<%= link_to 'Lowest price', sorted_products_path('price ASC') %>
+		<%= link_to 'Highest price', sorted_products_path('price DESC') %>
+		<%= link_to 'Sort by name', sorted_products_path(:name) %>
+	</div>
+</div>
+
 <div>
 	<% @products.each do |product| %>
 		<div class="product">
@@ -15,3 +24,8 @@
 	<%= will_paginate @products %>
 </div>
 
+<script type="text/javascript">
+	function toggleDropdown() {
+		document.getElementById("sort-options").classList.toggle("show");
+	}
+</script>

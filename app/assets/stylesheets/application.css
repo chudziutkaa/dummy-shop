@@ -34,3 +34,22 @@
   margin-top: 15px;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  border: 3px solid black;
+  background-color: white;
+}
+
+.dropdown-options {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  min-width: 100px;
+}
+
+.show {  display: block; }
