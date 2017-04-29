@@ -1,0 +1,12 @@
+<h3>Don't you wanna buy something?</h3> 
+
+<div>
+	<% @products.each do |product| %>
+		<div class="product">
+			<%= link_to product.name, product_path(product.id) %>,<br/>
+			<%= product.price%>$<br/>
+			<img class="product-img" src="http://www.freeiconspng.com/uploads/photo-video-slr-camera-icon-512x512-pixel-12.png"><br/>
+			<%= product.description %><br/>
+		</div>
+	<% end %>
+</div>

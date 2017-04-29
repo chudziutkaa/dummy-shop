@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+
+.product {
+  width: 20%;
+  height: 300px;
+  display: inline-block;
+  margin: auto;
+}
+
+.product-img {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  display: block;
+}
