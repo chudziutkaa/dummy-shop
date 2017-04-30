@@ -13,3 +13,6 @@
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed mi ligula. Praesent ut diam nec metus efficitur rhoncus sed ac quam. Aenean a finibus risus. Vivamus efficitur pharetra hendrerit. Nulla mauris mi, molestie eget pretium nec, convallis eu erat."
     )
 end
+
+OrderStatus.create_with(id: 1).find_or_create_by(name: "Cart")
+OrderStatus.create_with(id: 2).find_or_create_by(name: "Completed")
