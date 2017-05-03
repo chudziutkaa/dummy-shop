@@ -1,0 +1,37 @@
+<% if @order_products.count == 0 %>
+  <div id="empty-cart">
+    <i class="fa fa-shopping-cart fa-5x" aria-hidden="true"></i> 
+    <p>Your shopping cart is empty <i class="fa fa-frown-o" aria-hidden="true"></i></p>
+  </div>
+<% else %>
+  <div class="cart-products">
+    <% @order_products.each do |order_product| %>
+      <div>
+        <div>
+          <div class="cart-product">
+            <div>
+              <h4><%= order_product.product.name %></h4>
+            </div>
+
+            <%= form_for order_product, remote: true do |f| %>
+              <h4>Unit Price: <span><%= number_to_currency order_product.product.price %></span></h4>
+              <div>
+                <div>
+                  <%= f.number_field :quantity, value: order_product.quantity.to_i, class: "form-control", min: 1 %>
+                  <%= f.hidden_field :product_id, value: order_product.product.id %>
+                </div>
+                <div>
+                  <div>
+                    <%= f.submit "Update Quantity" %>
+                    <%= link_to "Delete", order_product, { data: { confirm: "Are you sure you wish to delete the product '#{order_product.product.name}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" } %>
+                  </div>
+                </div>
+              </div>
+              <h4>Total Price: <span><%= number_to_currency order_product.price %></span></h4>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

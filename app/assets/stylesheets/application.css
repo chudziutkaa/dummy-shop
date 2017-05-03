@@ -123,3 +123,8 @@
   width: 300px;
 }
 
+#empty-cart {
+  border: 5px solid #778899;
+  background-color: #d3d3d3;
+  height: auto;
+}
