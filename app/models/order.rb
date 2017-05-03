@@ -3,4 +3,12 @@ class Order < ActiveRecord::Base
   has_many :order_products
 
   
+  before_create :set_order_status
+
+
+  private
+
+  def set_order_status
+    self.order_status_id = 1
+  end
 end
