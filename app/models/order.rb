@@ -5,6 +5,9 @@ class Order < ActiveRecord::Base
   
   before_create :set_order_status
 
+  def total_price
+    order_products.collect(&:price).sum
+  end
 
   private
 
