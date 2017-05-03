@@ -1,6 +1,17 @@
-<h4><%= @product.name %></h4>
-<%= @product.price %>
+<div class="product-container">
+    <div class="sidebar">
+        <img src="http://www.freeiconspng.com/uploads/photo-video-slr-camera-icon-512x512-pixel-12.png">
+    </div>
+    <div class="content">
+      <h4><%= @product.name %></h4>
+      <h4>Price: <%= number_to_currency @product.price %></h4>
+      <%= form_for @order_product, remote: true do |f| %>
+        <%= f.number_field :quantity, value: 1,  min: 1 %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.submit "Add to Cart" %>
+        <i class="fa fa-cart-plus" aria-hidden="true"></i>
 
-<div>
-	<p><%= @product.description %> </p>
+      <% end %>
+      <p><%= @product.description %></p>
+    </div>
 </div>

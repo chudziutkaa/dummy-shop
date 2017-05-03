@@ -102,3 +102,24 @@
 }
 
 .show {  display: block; }
+
+.product-container {
+  width: 960px;
+  margin: auto 20%;
+}
+
+.content {
+  float:left;
+  width:620px;
+}
+
+.sidebar {
+  float:left;
+  width:340px;
+}
+
+.sidebar img {
+  max-height: 300px;
+  width: 300px;
+}
+

@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @order_product = current_order.order_products.new
   end
 
   private
