@@ -15,11 +15,8 @@ Rails.application.routes.draw do
   resources :products, only: [ :index, :show ]
 
   # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
+  resources :carts, only: [ :index ]
+
   #
   #     collection do
   #       get 'sold'
