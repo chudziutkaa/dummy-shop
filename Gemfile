@@ -33,6 +33,8 @@ gem 'nested_form', '~> 0.3.2'
 
 gem 'administrate', '~> 0.6.0'
 
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

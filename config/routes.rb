@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, path: 'admin', skip: :registrations
+
   namespace :admin do
     resources :orders, only: [:index, :show]
     resources :products, only: [:index, :new, :create, :edit, :update, :destroy]
