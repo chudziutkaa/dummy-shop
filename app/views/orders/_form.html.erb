@@ -1,0 +1,30 @@
+<h2>Complete your order</h2>
+<h4>Where shall we send products for you?</h4>
+
+<%= nested_form_for current_order, url: complete_order_path(current_order.id), method: 'PUT' do |f| %>
+	<%= f.hidden_field :total_price, value: current_order.total_price %>
+	<%= f.hidden_field :order_status, value: "completed" %>
+	<%= f.fields_for :user, User.new do |u| %>
+		<div>
+			<%= u.label :street %>
+			<%= u.text_field :street, class: "user-input" %>
+		</div>
+
+		<div>
+			<%= u.label :building_nr %>
+			<%= u.text_field :building_nr, class: "user-input" %>
+		</div>
+
+		<div>
+			<%= u.label :post_code %>
+			<%= u.text_field :post_code, class: "user-input" %>
+		</div>
+
+		<div>
+			<%= u.label :city %>
+			<%= u.text_field :city, class: "user-input" %>
+		</div>
+	<% end %>
+
+	<%= f.submit "Save" %>
+<% end %>
