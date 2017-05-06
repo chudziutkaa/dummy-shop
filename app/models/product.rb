@@ -9,4 +9,5 @@ class Product < ActiveRecord::Base
 
   scope :ordered, -> (sort_params) { order(sort_params) }
 
+  has_many :comments
 end
