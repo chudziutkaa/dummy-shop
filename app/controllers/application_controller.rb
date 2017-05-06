@@ -13,4 +13,15 @@ class ApplicationController < ActionController::Base
     new_admin_user_session_path
   end
 
+  layout :layout
+
+  protected
+
+  def layout
+    if devise_controller?
+      false
+    else
+      'application'
+    end
+  end
 end
