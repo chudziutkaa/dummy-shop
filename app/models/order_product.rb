@@ -8,4 +8,7 @@ class OrderProduct < ActiveRecord::Base
     product.price * quantity
   end
 
+  def readonly?
+    order.order_status == 'completed'
+  end
 end

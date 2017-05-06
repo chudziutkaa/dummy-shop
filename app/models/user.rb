@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
   validates_format_of :city, with: /\A[A-Z]\D{1,}$\Z/i, presence: true
 
   belongs_to :order
+
+  def readonly?
+    persisted?
+  end
 end
