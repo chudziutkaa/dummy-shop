@@ -20,6 +20,11 @@
   font-family: 'Roboto', sans-serif;
  }
 
+ #logout-link {
+  position: absolute; 
+  bottom: 0;
+ }
+
  .container {
   margin: auto;
   width: 100%;

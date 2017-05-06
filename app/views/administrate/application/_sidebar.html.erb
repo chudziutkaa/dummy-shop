@@ -1,0 +1,15 @@
+<ul class="sidebar__list">
+  <% Administrate::Namespace.new(namespace).resources.each do |resource| %>
+  	<% next if resource.name == :users or resource.name == :order_products %>
+    <li>
+      <%= link_to(
+        display_resource_name(resource),
+        [namespace, resource.path],
+        class: "sidebar__link sidebar__link--#{nav_link_state(resource)}"
+      ) %>
+    </li>
+  <% end %>
+  <li style="position: fixed; bottom: 10px">
+  	<%= link_to "Logout", destroy_admin_user_session_path, method: :delete, class: "sidebar__list sidebar__link"  %>
+  </li>
+</ul>
