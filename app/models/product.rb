@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
 
   has_many :order_products
 
-  self.per_page = 20
+  paginates_per 20
 
   scope :ordered, -> (sort_params) { order(sort_params) }
 

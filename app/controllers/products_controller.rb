@@ -3,10 +3,11 @@ class ProductsController < ApplicationController
 
   def index
     if params[:sort_params]
-      @products = Product.ordered(params[:sort_params]).paginate(page: params[:page])
+      @products = Product.ordered(params[:sort_params])
     else
-      @products = Product.paginate(page: params[:page])
+      @products = Product.all
     end
+    @products = @products.page(params[:page])
   end
 
   def show
