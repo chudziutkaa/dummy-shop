@@ -49,8 +49,6 @@
 
  .yield-container {
   margin: 0 auto;
-  display: inline-block;
-  position: absolute;
   text-align: center;
  }
 
@@ -127,4 +125,42 @@
   border: 5px solid #778899;
   background-color: #d3d3d3;
   height: auto;
+}
+
+.cart {
+  text-align: left;
+}
+
+.simple-table {
+  border: 2px solid #778899;
+  border-collapse: collapse;
+  border-spacing: 0;
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.simple-table th {
+  background-color: #d3d3d3;
+  border-bottom: 4px solid #778899;
+}
+
+.quantity-input {
+  max-width: 40px;
+  text-align: center;
+}
+
+.link-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  text-decoration: none;
+  font-size: inherit;
+}
+
+.user-input {
+  margin: 5px;
+  height: 40px;
+  width: 100%;
+  max-width: 414px;
 }
