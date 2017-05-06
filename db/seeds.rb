@@ -14,5 +14,3 @@
     )
 end
 
-OrderStatus.create_with(id: 1).find_or_create_by(name: "Cart")
-OrderStatus.create_with(id: 2).find_or_create_by(name: "Completed")
