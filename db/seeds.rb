@@ -14,3 +14,4 @@
     )
 end
 
+AdminUser.create(email: 'admin@dummy.shop', password: 'Password1')
