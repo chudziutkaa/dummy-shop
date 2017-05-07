@@ -37,4 +37,8 @@ RSpec.describe User do
   it 'is invalid when city contains numbers' do
     expect(FactoryGirl.build(:user, city: 'City123')).to be_invalid
   end
+
+  it 'is invalid with incorrect email format' do
+    expect(FactoryGirl.build(:user, email: 'userwithoutat')).to be_invalid
+  end
 end
