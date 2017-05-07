@@ -30,11 +30,13 @@ It renders the `_table` partial to display details about the resources.
 <header class="header">
   <h1 class="header__heading" id="page-title"><%= content_for(:title) %></h1>
   <div>
-    <%= form_tag "/admin/orders", method: :get do %>
-      <%= check_box_tag 'order[statuses][]', 'cart' %> Cart
-      <%= check_box_tag 'order[statuses][]', 'completed' %> Completed
-      <%= button_tag "Filter" %>
-    <% end %>
+    <%# form_tag "/admin/orders", method: :get do %>
+      <!-- <%# check_box_tag 'order[statuses][]', 'cart' %> Cart -->
+      <!-- <%# check_box_tag 'order[statuses][]', 'completed' %> Completed -->
+      <%# button_tag "Filter" %>
+    <%# end %>
+    <%= link_to "Pendings", admin_admin_selected_orders_path('cart') %>
+    <%= link_to "Completed", admin_admin_selected_orders_path('completed') %>
   </div>
   <div class="header__actions">
     <%= link_to(
