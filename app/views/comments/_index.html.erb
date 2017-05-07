@@ -1,0 +1,32 @@
+<% if @comments.count == 0 %>
+	<p>No comments here. You will be the first</p>
+<% else %>
+	<div id="reply" class="reply-comment">
+		<%= render 'comments/form', product: @product, comment: @comment, parent: nil %>
+	</div>
+	<ul>
+	<% @comments.each do |comment| %>
+		<% if comment.content.present? %>
+			<div class="comment-box">
+				<i class="fa fa-commenting fa-4x" aria-hidden="true"></i><%= comment.created_at.strftime("%d/%m/%y: %H:%M:%S") %>
+			    <li class="comment">
+				    <p><%= comment.content %></p>
+				    <!-- <button onclick="toggleForm()">Reply</button> -->
+				</li>
+			</div>
+		<% end %>
+	<% end %>
+	</ul>
+<% end %>
+
+<script type="text/javascript">
+	function assignProduct(product) {
+		product = product;
+	}
+
+	document.getElementById("demo").innerHTML = product;
+
+	function toggleForm() {
+		document.getElementById('reply').classList.toggle('show');
+	}
+</script>
