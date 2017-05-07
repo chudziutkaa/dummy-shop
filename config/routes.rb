@@ -28,11 +28,14 @@ Rails.application.routes.draw do
   get 'new_order' => 'orders#start_new_session', as: :new_session
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :products, only: [ :index, :show ]
-  resources :order_products, only: [ :create, :update, :destroy ]
+  resources :products, only: [:index, :show] do
+    resources :comments, only: :create
+  end
+
+  resources :order_products, only: [:create, :update, :destroy]
 
   # Example resource route with options:
-  resources :carts, only: [ :index ]
+  resources :carts, only: :index
 
   #
   #     collection do
