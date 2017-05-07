@@ -1,17 +1,22 @@
-<h4>Your order is completed!</h4>
-<h3>Let us assume everything:</h3>
-<div>
-	<% @order.order_products.each do |order_product| %>
-		<%= order_product.product.name %>
-		<%= order_product.quantity %>
-		<%= order_product.price %>
-	<% end %>
+<div class="row order-completed">
+	<div class="col-1-1">
+		<h2>Your order is completed!</h2>
+		<h3>Let us assume everything:</h3>
+	</div>
+	<div class="col-1-1">
+	<h4>You ordered: </h4>
+		<% @order.order_products.each do |order_product| %>
+			<%= order_product.quantity %>
+			<%= order_product.product.name %> - 
+			<%= number_to_currency order_product.price %><br/>
+		<% end %>
+	</div>
+	<div class="col-1-1">
+	<h4>Your address:</h4>
+		<%= @order.user.post_code %> <%= @order.user.city %>,
+		<%= @order.user.building_nr %> <%= @order.user.street %>
+	</div>
+	<div class="col-1-1 kp-shp-btn">
+		<%= link_to "Keep shopping", new_session_path %>
+	</div>
 </div>
-
-<h4>Your address</h4>
-<div>
-	<%= @order.user.building_nr %><%= @order.user.street %>
-	<%= @order.user.post_code %><%= @order.user.city %>
-</div>
-
-<%= link_to "Keep shopping", new_session_path %>

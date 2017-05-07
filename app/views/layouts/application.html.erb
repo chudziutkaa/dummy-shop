@@ -9,17 +9,15 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<div class="container">
-		<header class="header-container">
+	<div class="row container">
+		<header class="col-1-1 header-container">
 			<h2 class="header-content">Dummy shop</h2>
 		</header>
-		<div>
+		<div class="col-1-1">
 			<h5 class="cart-element"><%= render 'layouts/cart_element' %></h5>
 		</div>
 
-		<div class="yield-container">
-			<%= yield %>
-		</div>
+		<%= yield %>
 		
 	</div>
 </body>

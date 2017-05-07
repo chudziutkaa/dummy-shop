@@ -1,27 +1,31 @@
-<h3>Don't you wanna buy something?</h3> 
+<div class="col-1-1">
+	<h3 id="marketing-header">Don't you wanna buy something?</h3>
+</div> 
 
-<div class="dropdown">
-	<button onclick="toggleDropdown()" class="dropbtn">Sort products</button>
-	<div id="sort-options" class="dropdown-options">
-		<%= link_to 'Lowest price', sorted_products_path('price ASC') %>
-		<%= link_to 'Highest price', sorted_products_path('price DESC') %>
-		<%= link_to 'Sort by name', sorted_products_path(:name) %>
+<div class="row col-1-1 products-topbar">
+	<div class="dropdown">
+		<button onclick="toggleDropdown()" class="dropbtn"><b>Sort products</b></button>
+		<div id="sort-options" class="dropdown-options">
+			<%= link_to 'Lowest price', sorted_products_path('price ASC') %>
+			<%= link_to 'Highest price', sorted_products_path('price DESC') %>
+			<%= link_to 'Sort by name', sorted_products_path(:name) %>
+		</div>
 	</div>
 </div>
 
-<div>
-	<% @products.each do |product| %>
-		<div class="product">
-			<%= link_to product.name, product_path(product.id) %>,<br/>
-			<%= product.price%>$<br/>
-			<img class="product-img" src="http://www.freeiconspng.com/uploads/photo-video-slr-camera-icon-512x512-pixel-12.png"><br/>
-			<%= product.description %><br/>
+<div class="row">
+	<div class="product-index">
+		<% @products.each do |product| %>
+			<div class="product">
+				<%= link_to product.name, product_path(product.id) %>,<br/>
+				<%= number_to_currency product.price %><br/>
+				<img class="product-img" src="http://www.freeiconspng.com/uploads/photo-video-slr-camera-icon-512x512-pixel-12.png"><br/>
+			</div>
+		<% end %>
+		<div class='products-pagination'>
+			<%= paginate @products %>
 		</div>
-	<% end %>
-</div>
-
-<div class='products-pagination'>
-	<%= paginate @products %>
+	</div>
 </div>
 
 <script type="text/javascript">

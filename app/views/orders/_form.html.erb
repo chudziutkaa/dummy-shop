@@ -5,26 +5,21 @@
 	<%= f.hidden_field :total_price, value: current_order.total_price %>
 	<%= f.hidden_field :order_status, value: "completed" %>
 	<%= f.fields_for :user, User.new do |u| %>
-		<div>
-			<%= u.label :street %>
-			<%= u.text_field :street, class: "user-input" %>
-		</div>
+		<div class="row col-1-1 order-form">
+			<%= u.label :street, class: "col-1-2" %>
+			<%= u.text_field :street, class: "col-1-2 user-input" %>
 
-		<div>
-			<%= u.label :building_nr %>
-			<%= u.text_field :building_nr, class: "user-input" %>
-		</div>
+			<%= u.label :building_nr, class: "col-1-2" %>
+			<%= u.text_field :building_nr, class: "col-1-2 user-input" %>
 
-		<div>
-			<%= u.label :post_code %>
-			<%= u.text_field :post_code, class: "user-input" %>
-		</div>
+			<%= u.label :post_code, class: "col-1-2" %>
+			<%= u.text_field :post_code, class: "col-1-2 user-input" %>
 
-		<div>
-			<%= u.label :city %>
-			<%= u.text_field :city, class: "user-input" %>
+			<%= u.label :city, class: "col-1-2" %>
+			<%= u.text_field :city, class: "col-1-2 user-input" %>
 		</div>
 	<% end %>
-
-	<%= f.submit "Save" %>
+	<div class="row col-1-1 submit-order">
+		<%= f.submit "Save" %>
+	</div>
 <% end %>
