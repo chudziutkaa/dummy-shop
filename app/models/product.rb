@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
 
   paginates_per 20
 
-  scope :ordered, -> (sort_params) { order(sort_params) }
+  scope :ordered, ->(sort_params) { order(sort_params) }
 
   has_many :comments
 end

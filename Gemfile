@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
@@ -34,6 +33,8 @@ gem 'nested_form', '~> 0.3.2'
 gem 'administrate', '~> 0.6.0'
 
 gem 'devise'
+
+gem 'rubocop', '~> 0.48.1', require: false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

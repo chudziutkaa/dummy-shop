@@ -1,5 +1,5 @@
 class OrderProductsController < ApplicationController
-  before_action :set_current_order, only: [ :update, :destroy ]
+  before_action :set_current_order, only: [:update, :destroy]
 
   def create
     @order = current_order
@@ -9,15 +9,11 @@ class OrderProductsController < ApplicationController
   end
 
   def update
-    # @order_product = @order.order_products.find(params[:id])
     @order_product.update_attributes(order_product_params)
-    # @order_products = @order.order_products
   end
 
   def destroy
-    # @order_product = @order.order_products.find(params[:id])
     @order_product.destroy
-    # @order_products = @order.order_products
   end
 
   private
