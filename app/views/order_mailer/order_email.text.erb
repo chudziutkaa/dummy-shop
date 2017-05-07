@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi! %></h1>
+    <h4>New order has completed!</h4>
+
+    <p>Assuming order: </p>
+    <h4>Products ordered: </h4>
+      <% @order.order_products.each do |order_product| %>
+        <%= order_product.quantity %>
+        <%= order_product.product.name %> - 
+        <%= number_to_currency order_product.price %><br/>
+      <% end %>
+    </div>
+    <div>
+    <h4>Shipping address:</h4>
+      <%= @order.user.post_code %> <%= @order.user.city %>,
+      <%= @order.user.building_nr %> <%= @order.user.street %>
+    </div>
+  </body>
+</html>
