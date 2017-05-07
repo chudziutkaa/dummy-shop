@@ -45,8 +45,9 @@ gem 'devise'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'pry'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
@@ -57,6 +58,10 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'guard-rspec'
+end
 
 gem 'rails_12factor', group: :production
 ruby '2.3.1'
