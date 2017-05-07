@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:total_price, :order_status, user_attributes: [:street, :building_nr, :post_code, :city])
+    params.require(:order).permit(:total_price, :order_status, user_attributes: [:email, :street, :building_nr, :post_code, :city])
   end
 
   def set_order

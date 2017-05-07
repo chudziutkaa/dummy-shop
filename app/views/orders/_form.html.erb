@@ -6,6 +6,9 @@
 	<%= f.hidden_field :order_status, value: "completed" %>
 	<%= f.fields_for :user, User.new do |u| %>
 		<div class="row col-1-1 order-form">
+			<%= u.label :email, class: 'col-1-2' %>
+			<%= u.text_field :email, class: 'col-1-2 user-input' %>
+
 			<%= u.label :street, class: "col-1-2" %>
 			<%= u.text_field :street, class: "col-1-2 user-input" %>
 
