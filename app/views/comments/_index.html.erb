@@ -1,7 +1,14 @@
 <% if @comments.count == 0 %>
 	<p>No comments here. You will be the first</p>
 <% else %>
-	<div id="reply" class="reply-comment">
+	<div class="col-1-1 error">
+		<% if !@comment.nil? && @comment.errors.any? %>
+			  <% @comment.errors.full_messages.each do |e| %>
+			  	<%= e %>
+			  <% end %>
+		<% end %>
+	</div>
+	<div id="reply" class="col-1-1 reply-comment">
 		<%= render 'comments/form', product: @product, comment: @comment, parent: nil %>
 	</div>
 	<ul>

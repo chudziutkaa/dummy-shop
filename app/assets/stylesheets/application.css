@@ -243,6 +243,10 @@
   z-index: 1;
 }
 
+.error {
+  color: red;
+}
+
 .comment-box {
   float: right;
   list-style: none;
