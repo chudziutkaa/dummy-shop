@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
 
   def complete
     @order.update(order_params)
+    OrderMailer.order_email(@order.user, @order).deliver
     redirect_to completed_order_path
   end
 
