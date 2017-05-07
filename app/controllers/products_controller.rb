@@ -12,6 +12,8 @@ class ProductsController < ApplicationController
 
   def show
     @order_product = current_order.order_products.new
+    @comments = @product.comments.from_recent
+    @comment = @product.comments.new
   end
 
   private
