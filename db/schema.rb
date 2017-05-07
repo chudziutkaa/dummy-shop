@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506185009) do
+ActiveRecord::Schema.define(version: 20170507084705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 20170506185009) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "comments", force: :cascade do |t|
-    t.text    "content"
-    t.integer "product_id"
-    t.integer "parent_id"
+    t.text     "content"
+    t.integer  "product_id"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "comments", ["product_id"], name: "index_comments_on_product_id", using: :btree
