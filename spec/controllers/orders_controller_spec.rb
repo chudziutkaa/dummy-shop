@@ -12,10 +12,10 @@ RSpec.describe OrdersController do
   end
 
   describe 'PUT #complete' do
+    let!(:order) { FactoryGirl.create :order }
+    let(:order_status) { 'completed' }
     context 'when order is found' do
-      let!(:order) { FactoryGirl.create :order }
       let!(:user) { FactoryGirl.create :user, order_id: order.id }
-      let(:order_status) { 'completed' }
       let!(:params) do
         { id: order.id, order: { order_status: order_status, user: user } }
       end
@@ -32,6 +32,18 @@ RSpec.describe OrdersController do
       it { is_expected.to have_http_status(302) }
 
       it { is_expected.to redirect_to(completed_order_path(assigns(:order))) }
+    end
+
+    context 'when user is not valid' do
+      let!(:user) { FactoryGirl.build :user, street: nil ,order_id: order.id }
+      let!(:params) do
+        { id: order.id, order: { order_status: order_status, user: user } }
+      end
+      subject { put :complete, params }
+
+      it 'does not change order_status' do
+        expect(order.order_status).to eq('cart')
+      end
     end
   end
 
