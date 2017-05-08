@@ -2,10 +2,12 @@
 	<p>No comments here. You will be the first</p>
 <% else %>
 	<div class="col-1-1 error">
-		<% if !@comment.nil? && @comment.errors.any? %>
+		<% if @comment.present? && @comment.errors.any? %>
+			<ul>
 			  <% @comment.errors.full_messages.each do |e| %>
-			  	<%= e %>
+			  	<li><%= e %></li>
 			  <% end %>
+			 </ul>
 		<% end %>
 	</div>
 	<div id="reply" class="col-1-1 reply-comment">
