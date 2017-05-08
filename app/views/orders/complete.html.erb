@@ -1,1 +1,12 @@
-<%= render 'form', order: @order, user: @user %>
+<div class="col-1-1 error">
+  <% if @order.present? && @order.errors.any? %>
+  	<ul>
+	    <% @order.errors.full_messages.each do |e| %>
+	      <li><%= e %></li>
+	    <% end %>
+	  </ul>
+  <% end %>
+</div>
+<div class="col1-1">
+	<%= render 'form', order: @order, user: @user %>
+</div>

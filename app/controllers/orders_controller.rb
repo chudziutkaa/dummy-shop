@@ -2,9 +2,12 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:complete, :show]
 
   def complete
-    @order.update(order_params)
+    if @order.update(order_params)
     OrderMailer.order_email(@order.user, @order).deliver
-    redirect_to completed_order_path
+      redirect_to completed_order_path
+    else
+      render :complete
+    end
   end
 
   def show
