@@ -1,7 +1,9 @@
-<%= form_for comment, remote: true, url: product_comments_path(product_id: product.id), method: 'POST' do |f|  %>
-	<% if parent.present? %>
-		<%= f.hidden_field :parent_id, value: parent.id %>
+<div class="col-1-1">
+	<%= form_for comment, remote: true, url: product_comments_path(product_id: product.id), method: 'POST' do |f|  %>
+		<% if parent.present? %>
+			<%= f.hidden_field :parent_id, value: parent.id %>
+		<% end %>
+		<%= f.text_field :content, placeholder: 'type your comment', class: 'comment-input'  %>
+		<%= f.submit "Save", class: 'submit-btn' %>
 	<% end %>
-	<%= f.text_field :content, placeholder: 'comment'  %>
-	<%= f.submit "Save" %>
-<% end %>
+</div>

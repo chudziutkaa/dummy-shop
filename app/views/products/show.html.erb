@@ -3,10 +3,10 @@
       <h3><b><%= @product.name %></b></h3>
       <h4>Price: <%= number_to_currency @product.price %></h4>
       <%= form_for @order_product, remote: true do |f| %>
-        <%= f.number_field :quantity, value: 1,  min: 1 %>
+        <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i>
+        <%= f.number_field :quantity, value: 1,  min: 1, class: 'quantity-input' %>
         <%= f.hidden_field :product_id, value: @product.id %>
-        <i class="fa fa-cart-plus" aria-hidden="true"></i>
-        <%= f.submit "Add to Cart" %>
+        <%= f.submit "Add to Cart", class: 'submit-btn' %>
       <% end %>
       <p class="product-description"><%= @product.description %></p>
   </div>
